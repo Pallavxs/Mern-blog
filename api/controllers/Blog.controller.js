@@ -215,3 +215,19 @@ export const getAllBlogs = async (req, res, next) => {
         return next(handleError(500, error.message))
     }
 }
+
+export const getUserBlogs = async (req, res, next) => {
+    try {
+        const user = req.user; 
+        const blog = await Blog.find({ author: user._id }) 
+            .populate('author', 'name avatar role')
+            .populate('category', 'name slug')
+            .sort({ createdAt: -1 })
+            .lean()
+            .exec();
+
+        res.status(200).json({ blog });
+    } catch (error) {
+        return next(handleError(500, error.message));
+    }
+}

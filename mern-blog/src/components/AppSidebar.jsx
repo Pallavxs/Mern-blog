@@ -18,10 +18,11 @@ import {
   SidebarMenuItem,
   SidebarHeader,
 } from "@/components/ui/sidebar";
-import { RouteBlog, RouteBlogByCategory, RouteCategoryDetails, RouteCommentDetail, RouteIndex, RouteUser } from "@/helpers/RouterName";
+import { RouteBlog, RouteBlogByCategory, RouteCategoryDetails, RouteCommentDetail, RouteIndex, RouteUser, RouteUserblog } from "@/helpers/RouterName";
 import { useFetch } from "@/hooks/useFetch";
 import { getEnv } from "@/helpers/getEnv";
 import { useSelector } from "react-redux";
+import { AiOutlineFundView } from "react-icons/ai";
 
 export function AppSidebar() {
   const user = useSelector(state => state.user)
@@ -55,6 +56,17 @@ export function AppSidebar() {
             {user && user.isLoggedIn 
             ?
             <>
+             <SidebarMenuItem>
+              <SidebarMenuButton>
+                <SidebarMenuItem>
+                  <div className="flex items-center gap-2">
+                    <AiOutlineFundView size={20} />
+                    <Link to={RouteUserblog}>View</Link>
+                  </div>
+                </SidebarMenuItem>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+
             <SidebarMenuItem>
               <SidebarMenuButton>
                 <SidebarMenuItem>
@@ -76,6 +88,7 @@ export function AppSidebar() {
                 </SidebarMenuItem>
               </SidebarMenuButton>
             </SidebarMenuItem>
+
             </>
             :
             <>

@@ -49,5 +49,6 @@ export const RouteSearch = (q) => {
 
 export const RouteCommentDetail = '/comments'
 export const RouteUser = '/users'
+export const RouteUserblog = '/blogs'
 
 // Rät · Penelope Scott hehe 

@@ -4,7 +4,7 @@ import Layout from "./Layout/Layout";
 import Index from "./pages/Index";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/Signup";
-import { RouteAddCategory, RouteBlog, RouteBlogAdd, RouteBlogByCategory, RouteBlogDetails, RouteBlogEdit, RouteCategoryDetails, RouteCommentDetail, RouteEditCategory, RouteIndex, RouteProfile, RouteSearch, RouteSignIn, RouteSignUp, RouteUser } from "./helpers/RouterName";
+import { RouteAddCategory, RouteBlog, RouteBlogAdd, RouteBlogByCategory, RouteBlogDetails, RouteBlogEdit, RouteCategoryDetails, RouteCommentDetail, RouteEditCategory, RouteIndex, RouteProfile, RouteSearch, RouteSignIn, RouteSignUp, RouteUser, RouteUserblog } from "./helpers/RouterName";
 import Profile from "./pages/Profile";
 import EditCategory from "./pages/Categories/EditCategory";
 import CategoryDetails from "./pages/Categories/CategoryDetails";
@@ -19,6 +19,7 @@ import Comments from "./pages/Comments";
 import User from "./pages/User";
 import AuthRouteProtection from "./components/AuthRouteProtection";
 import OnlyAdminAllowed from "./components/OnlyAdminAllowed";
+import Userblog from "./pages/Userblog";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
             <Route path={RouteBlog} element={<BlogDetails/>} />
             <Route path={RouteBlogEdit()} element={<EditBlog/>} />
             <Route path={RouteCommentDetail} element={<Comments/>} />
+            <Route path={RouteUserblog} element={<Userblog/>} />
           </Route>
 
           <Route element={<OnlyAdminAllowed/>}>
